@@ -2,3 +2,22 @@
 /client/node_modules
 .ENV
 .DS_STORE
+
+
+# Ignore bundler config.
+/server/.bundle
+/server/bin/bundle
+
+# Ignore all logfiles and tempfiles.
+/server/log/*
+/server/tmp/*
+/server!/log/.keep
+/server!/tmp/.keep
+
+# Ignore uploaded files in development.
+/server/storage/*
+/server!/storage/.keep
+/server.byebug_history
+
+# Ignore master key for decrypting credentials and more.
+/server/config/master.key
