@@ -13,5 +13,16 @@ class Quack < ApplicationRecord\
     has_many :requacks,
     primary_key: :id,
     foreign_key: :quack_id,
-    class_name: "Quack" 
+    class_name: "Quack"
+    
+    def quack_type 
+      if quack_id? && body?
+            "quackback"
+        elsif tweet_id?
+            "requack"
+        else
+            "quack"
+      end
+    end
+
 end
