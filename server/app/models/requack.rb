@@ -1,0 +1,2 @@
+class Requack < Post
+end
