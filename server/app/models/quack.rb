@@ -10,17 +10,14 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
-    has_many :requacks,
-    primary_key: :id,
-    foreign_key: :quack_id,
-    class_name: "Quack"
+    has
     
     def quack_type 
-      if quack_id? && body?
+       if quack_id? && body?
             "quackback"
-        elsif tweet_id?
+        elsif quack_id?
             "requack"
-        else
+        else #Including cases where there is a body
             "quack"
       end
     end
