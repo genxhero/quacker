@@ -10,4 +10,8 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
+    has_many :requacks,
+    primary_key: :id,
+    foreign_key: :quack_id,
+    class_name: "Quack" 
 end
