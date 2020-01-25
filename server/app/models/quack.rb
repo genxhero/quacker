@@ -1,2 +1,3 @@
-class Quack < ApplicationRecord
+class Quack < Post
+
 end
