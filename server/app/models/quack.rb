@@ -10,6 +10,8 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
+    
+
     has
     
     def quack_type 
