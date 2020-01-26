@@ -14,11 +14,11 @@ class Quack < ApplicationRecord\
     
     def quack_type 
        if quack_id? && body?
-            "quackback"
+            "quackback" #Retweet with comment
         elsif quack_id?
-            "requack"
+            "requack" #retweet
         else #Including cases where there is a body
-            "quack"
+            "quack" #just a post
       end
     end
 
