@@ -24,17 +24,5 @@ class Quack < ApplicationRecord\
     foreign_key: :reply_to,
     class_name: "Quack"
 
-    def self.add_requacker(quack_id, user_id)
-        quack = Quack.find(quack_id)
-        quack.requackers << user_id 
-        quack.save
-    end
-
-    def self.remove_requacker(quack_id, user_id)
-        quack = Quack.find(quack_id)
-        quack.requackers.delete(user_id)
-        quack.save
-    end
-
 
 end
