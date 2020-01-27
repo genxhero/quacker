@@ -10,9 +10,10 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
-    
-
-    has
+    has_many :quacks,
+    primary_key: :id,
+    foreign_key: :quack_id,
+    class_name: "Quack"
     
     def quack_type 
        if quack_id? && body?
