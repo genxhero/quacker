@@ -15,20 +15,10 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
-    has_many :replies.
+    has_many :replies,
     primary_key: :id,
     foreign_key: :reply_to,
     class_name: "Quack"
-
-    def quack_type 
-       if quack_id? && body?
-            "quackback" #Retweet with comment
-        elsif quack_id?
-            "requack" #retweet
-        else #Including cases where there is a body
-            "quack" #just a post
-      end
-    end
 
     def self.add_requacker(quack_id, user_id)
         quack = Quack.find(quack_id)
