@@ -5,7 +5,7 @@ class CreateQuacks < ActiveRecord::Migration[6.0]
       t.integer :quack_id
       t.integer :body
       t.integer :requackers, array: true, default: []
-      t.integer :likers, array: true, defauult: []
+      t.integer :thread_id, null: false
       t.timestamps
     end
   end
