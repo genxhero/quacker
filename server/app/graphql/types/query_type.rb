@@ -5,8 +5,9 @@ module Types
 
     # TODO: remove me
     field :all_quacks, [QuackType], null: false
-    def images
+    def all_quacks
      Quack.all.order(created_at: :desc)
     end
+
   end
 end
