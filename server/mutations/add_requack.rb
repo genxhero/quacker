@@ -10,7 +10,7 @@ module Mutations
             requack.quack_id = quack_id 
             requack.body = comment
             if requack.save
-                Quack.add_requack(quack_id, requack.id)
+                Quack.add_requacker(quack_id, user_id)
                 requack
             else
                 requack.errors
