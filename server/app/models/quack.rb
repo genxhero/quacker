@@ -15,6 +15,10 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
+    has_many :requackers,
+    through: :requacks,
+    source: :user
+
     has_many :replies,
     primary_key: :id,
     foreign_key: :reply_to,
