@@ -36,9 +36,5 @@ class Quack < ApplicationRecord\
         quack.save
     end
 
-    def likers
-        #select from likes, get likes.userid
-    end
-
 
 end
