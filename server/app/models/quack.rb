@@ -28,5 +28,8 @@ class Quack < ApplicationRecord\
         self.requacks.count
     end
 
+    def reply_count
+        self.replies.count
+    end
 
 end
