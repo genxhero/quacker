@@ -10,9 +10,14 @@ class Quack < ApplicationRecord\
     foreign_key: :quack_id,
     class_name: "Quack"
 
-    has_many :quacks,
+    has_many :requacks,
     primary_key: :id,
     foreign_key: :quack_id,
+    class_name: "Quack"
+
+    has_many :replies.
+    primary_key: :id,
+    foreign_key: :reply_to,
     class_name: "Quack"
 
     def quack_type 
@@ -36,5 +41,10 @@ class Quack < ApplicationRecord\
         quack.requackers.delete(user_id)
         quack.save
     end
+
+    def likers
+        #select from likes, get likes.userid
+    end
+
 
 end
