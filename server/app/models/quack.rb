@@ -24,5 +24,9 @@ class Quack < ApplicationRecord\
     foreign_key: :reply_to,
     class_name: "Quack"
 
+    def requack_count
+        self.requacks.count
+    end
+
 
 end
