@@ -1,3 +1,8 @@
+/**
+ * 
+ * Uses Mention.js, Copyright (c) 2013 Jacob Kelley https://github.com/jakiestfu/Mention.js 
+ */
+
 import React, {useState } from 'react';
 
 const QuackForm = props => {
@@ -23,6 +28,9 @@ const QuackForm = props => {
         <div>
             <textarea value={quack} onChange={handleChange}>
             </textarea>
+            <div>
+                { searching && <span>Searching...</span>}
+            </div>
         </div>
     )
 }
