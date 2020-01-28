@@ -14,6 +14,9 @@ const QuackForm = props => {
             e.target.style.color = "black"
             toggleSearch(false)
         }
+        if (searching ** e.nativeEvent.data !== "@") {
+            updateQuery(`${query}${e.nativeEvent.data}`)
+        }
         updateQuack(e.target.value)
     }
 
@@ -24,12 +27,13 @@ const QuackForm = props => {
 
     const [quack, updateQuack] = useState("")
     const [searching, toggleSearch] = useState(false)
+    const [query, updateQuery = useState("")]
     return (
         <div>
             <textarea value={quack} onChange={handleChange}>
             </textarea>
             <div>
-                { searching && <span>Searching...</span>}
+                { searching && <span>Searching...for {query}</span>}
             </div>
         </div>
     )
