@@ -1,10 +1,44 @@
 import React, {useState } from 'react';
-import {Editor, EditorState, RichUtils} from 'draft-js';
+import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 
 
 
 const QuackForm = props => {
-    const handleChange = (e) => {
+
+
+    const [editorState, setEditorState] = useState(
+        EditorState.createEmpty(),
+      );
+
+      const compositeDecorator = new CompositeDecorator([
+        {
+          strategy: handleStrategy,
+          component: HandleSpan,
+        },
+        {
+          strategy: hashtagStrategy,
+          component: HashtagSpan,
+        },
+      ]);
+
+    return (
+        <div>
+            <Editor editorState={editorState} onChange={setEditorState}>
+            </Editor>
+            <div>
+                { searching && <span>Searching...for {query}</span>}
+            </div>
+            <div>
+    {          <span>Your Quack is: {quack}</span>}
+            </div>
+        </div>
+    )
+}
+
+export default QuackForm;
+
+/**
+ *     const handleChange = (e) => {
         if (e.nativeEvent.data === "@") {
             e.target.style.color = "blue"
             toggleSearch(true)
@@ -24,27 +58,9 @@ const QuackForm = props => {
         
     }
 
+
     const [quack, updateQuack] = useState("")
     const [searching, toggleSearch] = useState(false)
     const [query, updateQuery] = useState("")
 
-    const [editorState, setEditorState] = useState(
-        EditorState.createEmpty(),
-      );
-
-      console.log(editorState)
-    return (
-        <div>
-            <Editor editorState={editorState} onChange={setEditorState}>
-            </Editor>
-            <div>
-                { searching && <span>Searching...for {query}</span>}
-            </div>
-            <div>
-    {          <span>Your Quack is: {quack}</span>}
-            </div>
-        </div>
-    )
-}
-
-export default QuackForm;
+ */
