@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
+import QuackForm from './components/QuackForm';
 
 const App = () => {
 /**
@@ -14,6 +14,7 @@ const App = () => {
       <div>
       React IS Working
     <p>{currentUser}</p>
+        <QuackForm currentUser={currentUser}/>
       </div>
     )
 }
