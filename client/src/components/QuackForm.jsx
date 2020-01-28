@@ -12,13 +12,14 @@ const QuackForm = props => {
             toggleSearch(true)
         } else if (e.nativeEvent.data === " ") {
             e.target.style.color = "black"
-            toggleSearch(false)
             updateQuery("")
+            toggleSearch(false)
         }
-        if (searching && e.nativeEvent.data !== "@") {
-            updateQuery(`${query}${e.nativeEvent.data}`)
+        if (searching && e.nativeEvent.data !== "@" && e.nativeEvent.data !== " ") {
+             updateQuery(`${query}${e.nativeEvent.data}`)
         }
         updateQuack(e.target.value)
+        console.log(query)
     }
 
     const autoSearch = (e) => {
