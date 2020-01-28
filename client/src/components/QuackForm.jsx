@@ -1,9 +1,7 @@
-/**
- * 
- * Uses Mention.js, Copyright (c) 2013 Jacob Kelley https://github.com/jakiestfu/Mention.js 
- */
-
 import React, {useState } from 'react';
+import {Editor, EditorState, RichUtils} from 'draft-js';
+
+
 
 const QuackForm = props => {
     const handleChange = (e) => {
@@ -19,7 +17,6 @@ const QuackForm = props => {
              updateQuery(`${query}${e.nativeEvent.data}`)
         }
         updateQuack(e.target.value)
-        console.log(query)
     }
 
     const autoSearch = (e) => {
@@ -30,15 +27,21 @@ const QuackForm = props => {
     const [quack, updateQuack] = useState("")
     const [searching, toggleSearch] = useState(false)
     const [query, updateQuery] = useState("")
+
+    const [editorState, setEditorState] = useState(
+        EditorState.createEmpty(),
+      );
+
+      console.log(editorState)
     return (
         <div>
-            <textarea value={quack} onChange={handleChange}>
-            </textarea>
+            <Editor editorState={editorState} onChange={setEditorState}>
+            </Editor>
             <div>
                 { searching && <span>Searching...for {query}</span>}
             </div>
             <div>
-                {quack}
+    {          <span>Your Quack is: {quack}</span>}
             </div>
         </div>
     )

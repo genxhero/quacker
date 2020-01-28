@@ -13,7 +13,7 @@ const App = () => {
     return(
       <div>
       React IS Working
-    <p>{currentUser}</p>
+    <p>{<span>Current User: {currentUser}</span>}</p>
         <QuackForm currentUser={currentUser}/>
       </div>
     )
