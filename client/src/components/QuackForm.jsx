@@ -1,4 +1,5 @@
 import React, {useState } from 'react';
+import {TagSpan, UserSpan} from './Spans';
 import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 
 
@@ -6,11 +7,7 @@ import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 const QuackForm = props => {
 
 
-    const [editorState, setEditorState] = useState(
-        EditorState.createEmpty(),
-      );
-
-      const compositeDecorator = new CompositeDecorator([
+    const compositeDecorator = new CompositeDecorator([
         {
           strategy: handleStrategy,
           component: HandleSpan,
@@ -20,6 +17,12 @@ const QuackForm = props => {
           component: HashtagSpan,
         },
       ]);
+
+    const [editorState, setEditorState] = useState(
+        EditorState.createEmpty(),
+      );
+
+   
 
     return (
         <div>
