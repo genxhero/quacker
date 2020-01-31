@@ -1,13 +1,18 @@
 import React from 'react';
+import {styles} from 'draft-js';
 
 export const UserSpan = (props) => {
     return (
-        <span></span>
+            <span {...props} style={styles.handle}>
+             {props.children}
+            </span>
     )
 }
 
 export const TagSpan = (props) => {
     return (
-        <span></span>
+        <span {...props} style={styles.hashtag}>
+          {props.children}
+        </span>
     )
 }
