@@ -1,5 +1,6 @@
 import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
+import {usernameStrategy, tagStrategy} from '../utils/strategies';
 import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 
 
@@ -9,12 +10,12 @@ const QuackForm = props => {
 
     const compositeDecorator = new CompositeDecorator([
         {
-          strategy: handleStrategy,
-          component: HandleSpan,
+          strategy: usernameStrategy,
+          component: UserSpan,
         },
         {
-          strategy: hashtagStrategy,
-          component: HashtagSpan,
+          strategy: tagStrategy,
+          component: TagSpan,
         },
       ]);
 
@@ -28,12 +29,7 @@ const QuackForm = props => {
         <div>
             <Editor editorState={editorState} onChange={setEditorState}>
             </Editor>
-            <div>
-                { searching && <span>Searching...for {query}</span>}
-            </div>
-            <div>
-    {          <span>Your Quack is: {quack}</span>}
-            </div>
+        
         </div>
     )
 }
@@ -65,5 +61,12 @@ export default QuackForm;
     const [quack, updateQuack] = useState("")
     const [searching, toggleSearch] = useState(false)
     const [query, updateQuery] = useState("")
+
+        <div>
+                { searching && <span>Searching...for {query}</span>}
+            </div>
+            <div>
+    {          <span>Your Quack is: {quack}</span>}
+            </div>
 
  */
