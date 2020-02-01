@@ -8,7 +8,6 @@ import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 const QuackForm = props => {
 
     const test = (props) => {
-        debugger;
         console.log("This was passed as a prop")
     }
 
@@ -16,6 +15,7 @@ const QuackForm = props => {
         {
           strategy: usernameStrategy,
           component: UserSpan,
+          props: {performSearch: test}
         },
         {
           strategy: tagStrategy,
