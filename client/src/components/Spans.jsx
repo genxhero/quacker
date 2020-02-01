@@ -1,5 +1,5 @@
 import React from 'react';
-import {styles} from 'draft-js';
+import styles from 'draft-js';
 
 export const UserSpan = (props) => {
     return (
