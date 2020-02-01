@@ -23,6 +23,7 @@ const QuackForm = props => {
         EditorState.createEmpty(compositeDecorator),
       );
 
+    const [userSearch, updateSearch ] = useState(null);
    
 
     return (
