@@ -8,8 +8,9 @@ const UserSearch = (props) => {
       });
       if (loading) return <p>Loading ...</p>;
       if (error) return <p>Error...</p>
-      if (data.userSearch.length === 0) return <div />
-      debugger;
+
+    //   if (data.userSearch.length === 0) return <div />
+    console.log(data.userSearch)
     return (
         <div>
             {data.userSearch.map( user => {
