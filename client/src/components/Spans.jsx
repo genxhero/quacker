@@ -2,7 +2,10 @@ import React from 'react';
 import styles from 'draft-js';
 
 export const UserSpan = (props) => {
-    debugger;
+    if (props.decoratedText.length > 1) {
+        props.performSearch(props.decoratedText);
+    }
+    
     return (
             <span {...props} style={{"color":"blue"}}>
              {props.children}
