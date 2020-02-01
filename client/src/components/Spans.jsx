@@ -2,6 +2,7 @@ import React from 'react';
 import styles from 'draft-js';
 
 export const UserSpan = (props) => {
+    console.log(props)
     return (
             <span {...props} style={styles.handle}>
              {props.children}
