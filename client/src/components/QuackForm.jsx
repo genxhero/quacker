@@ -8,12 +8,12 @@ import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 const QuackForm = props => {
 
     const performSearch = (query, lastKey) => {
-        console.log("last key:", lastKey)
-        if (lastKey === " ") {
-            updateSearch({query: "", searching: false})
-        }
-        console.log(query)
-        updateSearch({query: query, searching: true});
+        if (lastKey === 32 || lastKey === 13) {
+         updateSearch({query: "", searching: false})
+        } else {
+            console.log(query)
+            updateSearch({query: query, searching: true});
+        }   
     }
 
     const compositeDecorator = new CompositeDecorator([
