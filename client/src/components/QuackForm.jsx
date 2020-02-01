@@ -7,15 +7,15 @@ import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 
 const QuackForm = props => {
 
-    const test = (props) => {
-        console.log("This was passed as a prop")
+    const performSearch = (query) => {
+        updateSearch({query: query, searching: true});
     }
 
     const compositeDecorator = new CompositeDecorator([
         {
           strategy: usernameStrategy,
           component: UserSpan,
-          props: {performSearch: test}
+          props: {performSearch: performSearch}
         },
         {
           strategy: tagStrategy,
@@ -27,7 +27,7 @@ const QuackForm = props => {
         EditorState.createEmpty(compositeDecorator),
       );
 
-    const [userSearch, updateSearch ] = useState(null);
+    const [userSearch, updateSearch ] = useState({query: "", searching: false});
    
 
     return (
