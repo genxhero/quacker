@@ -39,7 +39,7 @@ const QuackForm = props => {
         <div>
             <Editor editorState={editorState} onChange={setEditorState}>
             </Editor>
-            {userSearch.searching && <UserSearch query={query} />}
+            {userSearch.searching && <UserSearch userSearch={userSearch} />}
             
         </div>
     )
