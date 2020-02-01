@@ -37,7 +37,7 @@ const QuackForm = props => {
 
     return (
         <div>
-                    <p>{<span>Current User: {currentUser}</span>}</p>
+            <p>{<span>Current User: {props.currentUser}</span>}</p>
             <Editor editorState={editorState} onChange={setEditorState}>
             </Editor>
             {userSearch.searching && <UserSearch userSearch={userSearch} />}
