@@ -20,7 +20,7 @@ const QuackForm = props => {
       ]);
 
     const [editorState, setEditorState] = useState(
-        EditorState.createEmpty({decorator: compositeDecorator}),
+        EditorState.createEmpty(compositeDecorator),
       );
 
    
