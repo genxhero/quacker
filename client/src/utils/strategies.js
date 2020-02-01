@@ -6,7 +6,7 @@ export const tagStrategy = () =>{
 
 }
 
-export const usernameStrategy = (contentBlock, callback, conetntState) => {
+export const usernameStrategy = (contentBlock, callback, contentState) => {
     matchString(HANDLE_REGEX, contentBlock,  callback)
 }
 
