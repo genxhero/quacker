@@ -9,5 +9,14 @@ module Types
      Quack.all.order(created_at: :desc)
     end
 
+    field :user_search, [UserType], null: true do 
+      argument :query, String, required: true
+    end
+    def user_search(query: "")
+      User.where("lower(username) like ?", "%#{query.downcase}%")
+        .or(User.where("lower(first_name) like ?", "%#{query.downcase}%"))
+        .or(User.where("lower(last_name) like ?", "%#{query.downcase}%"))
+    end
+
   end
 end
