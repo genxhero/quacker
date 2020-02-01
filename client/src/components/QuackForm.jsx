@@ -7,6 +7,10 @@ import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
 
 const QuackForm = props => {
 
+    const test = (props) => {
+        debugger;
+        console.log("This was passed as a prop")
+    }
 
     const compositeDecorator = new CompositeDecorator([
         {

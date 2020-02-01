@@ -2,7 +2,7 @@ import React from 'react';
 import styles from 'draft-js';
 
 export const UserSpan = (props) => {
-    console.log(props.contentState)
+    debugger;
     return (
             <span {...props} style={{"color":"blue"}}>
              {props.children}
