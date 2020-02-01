@@ -4,7 +4,7 @@ import styles from 'draft-js';
 export const UserSpan = (props) => {
     console.log(props.contentState)
     return (
-            <span {...props} style={styles.handle}>
+            <span {...props} style={{"color":"blue"}}>
              {props.children}
             </span>
     )

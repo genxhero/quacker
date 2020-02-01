@@ -30,7 +30,7 @@ const QuackForm = props => {
         <div>
             <Editor editorState={editorState} onChange={setEditorState}>
             </Editor>
-        
+            {userSearch && <div> Searching...</div>}
         </div>
     )
 }
