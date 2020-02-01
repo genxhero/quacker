@@ -2,6 +2,7 @@ import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
 import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
+import UserSearch from './UserSearch';
 
 
 
@@ -11,7 +12,6 @@ const QuackForm = props => {
         if (lastKey === 32 || lastKey === 13) {
          updateSearch({query: "", searching: false})
         } else {
-            console.log(query)
             updateSearch({query: query, searching: true});
         }   
     }
