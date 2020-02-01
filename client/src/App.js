@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import QuackForm from './components/QuackForm';
+import { ApolloProvider } from 'react-apollo';
 
 const App = () => {
 /**
@@ -11,11 +12,9 @@ const App = () => {
    const [currentUser, setUser] = useState('Nobody')
 
     return(
-      <div>
-      React IS Working
-    <p>{<span>Current User: {currentUser}</span>}</p>
+      <ApolloProvider>
         <QuackForm currentUser={currentUser}/>
-      </div>
+      </ApolloProvider>
     )
 }
 
