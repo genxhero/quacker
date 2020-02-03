@@ -17,6 +17,5 @@ const matchString  = (pattern, contentBlock, callback) => {
     start = matchArr.index;
     callback(start, start + matchArr[0].length);
   }
-  debugger;
 
 }

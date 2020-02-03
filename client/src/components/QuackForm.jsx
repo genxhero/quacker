@@ -9,7 +9,7 @@ import UserSearch from './UserSearch';
 const QuackForm = props => {
 
     const performSearch = (query, lastKey) => {
-        console.log("Key Code:", lastKey, "Query:", query)
+        // console.log("Key Code:", lastKey, "Query:", query)
         if (lastKey === 32 || lastKey === 13) {
            updateSearch({query: "", searching: false})
         } else if (query.length === 1 && lastKey === 8) {
@@ -18,6 +18,10 @@ const QuackForm = props => {
         }  else {
             updateSearch({query: query, searching: true});
         }
+    }
+
+    const handleBackspace = (e) => {
+        console.log(e.keyCode)
     }
 
     const killSearch = () => {
@@ -46,7 +50,10 @@ const QuackForm = props => {
     return (
         <div>
             <p>{<span>Current User: {props.currentUser}</span>}</p>
-            <Editor editorState={editorState} onChange={setEditorState}>
+            <Editor editorState={editorState} 
+                    onChange={setEditorState}
+                    keyBindingFn={handleBackspace}>
+                        
             </Editor>
             {(userSearch.searching && userSearch.query.length > 1 ) && <UserSearch userSearch={userSearch} />}
         </div>
