@@ -9,11 +9,15 @@ import UserSearch from './UserSearch';
 const QuackForm = props => {
 
     const performSearch = (query, lastKey) => {
+        console.log("Key Code:", lastKey, "Query:", query)
         if (lastKey === 32 || lastKey === 13) {
-         updateSearch({query: "", searching: false})
-        } else {
-            updateSearch({query: query, searching: query.length > 1 ? true : false});
-        }   
+           updateSearch({query: "", searching: false})
+        } else if (query.length === 2 && lastKey === 8) {
+           updateSearch({query: "", searching: false})
+        }  else {
+            updateSearch({query: query, searching: true});
+
+        }
     }
 
     const killSearch = () => {
