@@ -12,7 +12,7 @@ const QuackForm = props => {
         if (lastKey === 32 || lastKey === 13) {
          updateSearch({query: "", searching: false})
         } else {
-            updateSearch({query: query, searching: true});
+            updateSearch({query: query, searching: query.length > 1 ? true : false});
         }   
     }
 
@@ -33,7 +33,7 @@ const QuackForm = props => {
       );
 
     const [userSearch, updateSearch ] = useState({query: "", searching: false});
-   
+        console.log("Am Searching?", userSearch.searching)
 
     return (
         <div>
