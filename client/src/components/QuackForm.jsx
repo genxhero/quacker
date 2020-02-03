@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
-import {Editor, EditorState, RichUtils, CompositeDecorator} from 'draft-js';
+import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw} from 'draft-js';
 import UserSearch from './UserSearch';
 
 
@@ -13,7 +13,6 @@ const QuackForm = props => {
         if (lastKey === 32 || lastKey === 13) {
            updateSearch({query: "", searching: false})
         } else if (query.length === 1 && lastKey === 8) {
-            console.log("Else If Condition Satisfied")
            updateSearch({query: "", searching: false})
         }  else {
             updateSearch({query: query, searching: true});
@@ -21,11 +20,18 @@ const QuackForm = props => {
     }
 
     const handleBackspace = (e) => {
-        console.log(e.keyCode)
+        if (e.keyCode === 8 && e.target.innerText.length === 2) {
+            killSearch();
+        }
     }
 
     const killSearch = () => {
         updateSearch({query: "", searching: false})
+    }
+
+    const saveQuack = () => {
+        const string = JSON.stringify( convertToRaw(editorState.getCurrentContent()) );
+        debugger;
     }
 
     const compositeDecorator = new CompositeDecorator([
@@ -45,17 +51,18 @@ const QuackForm = props => {
       );
 
     const [userSearch, updateSearch ] = useState({query: "", searching: false});
-
+        console.log(editorState)
   
     return (
         <div>
             <p>{<span>Current User: {props.currentUser}</span>}</p>
             <Editor editorState={editorState} 
                     onChange={setEditorState}
-                    keyBindingFn={handleBackspace}>
+                    keyBindingFn={handleBackspace}
+                    >
                         
             </Editor>
-            {(userSearch.searching && userSearch.query.length > 1 ) && <UserSearch userSearch={userSearch} />}
+            {userSearch.searching  && <UserSearch userSearch={userSearch} />}
         </div>
     )
 }
