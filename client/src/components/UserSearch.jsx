@@ -15,7 +15,7 @@ const UserSearch = (props) => {
             {data.userSearch.map( user => {
                 const link = user.avatar || "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
                 return (
-                    <div className="user-search-card"> 
+                    <div className="user-search-card" key={`@${user.username}`}> 
                         <div className="user-search-avatar"> 
                             <img src={link} alt={user.username}/> 
                         </div>
