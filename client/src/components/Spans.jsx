@@ -4,6 +4,8 @@ import styles from 'draft-js';
 export const UserSpan = (props) => {
     if (props.decoratedText.length > 1) {
         props.performSearch(props.decoratedText, event.which); // eslint-disable-line no-restricted-globals
+    } else {
+        props.killSearch();
     }
     
     return (

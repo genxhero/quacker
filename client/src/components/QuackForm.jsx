@@ -16,11 +16,15 @@ const QuackForm = props => {
         }   
     }
 
+    const killSearch = () => {
+        updateSearch({query: "", searching: false})
+    }
+
     const compositeDecorator = new CompositeDecorator([
         {
           strategy: usernameStrategy,
           component: UserSpan,
-          props: {performSearch: performSearch}
+          props: {performSearch: performSearch, killSearch: killSearch}
         },
         {
           strategy: tagStrategy,
