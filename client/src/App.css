@@ -1,0 +1,35 @@
+.user-search-results {
+    box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, 
+                rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.user-search-card {
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+}
+
+.user-search-data {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.user-search-name {
+    font-weight: bold;
+}
+
+.user-search-username {
+
+}
+
+.user-search-avatar {
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user-search-avatar > img {
+    width: 3rem;
+}
