@@ -40,7 +40,7 @@ const QuackForm = props => {
     }
 
     const parseQuackString = (string) => {
-        const words = str.split(" ");
+        const words = string.split(" ");
         const html = '';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@") {
