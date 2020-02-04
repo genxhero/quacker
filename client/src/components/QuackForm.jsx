@@ -39,6 +39,20 @@ const QuackForm = props => {
         updateQuack("@ass butt");        
     }
 
+    const parseQuackString = (string) => {
+        const words = str.split(" ");
+        const html = '';
+        for(let i = 0; i < words.length; i++) {
+            if (words[i][0] === "@") {
+                html += '<span className="quack-text blue">' + '<a href="">' + words[i] + '</a>' + '</span>';
+
+            }else {
+                html += '<span className="quack-text normal">' + words[i] + '</span>';
+            }
+        }
+        document.getElementById('quackbody').innerHTML = html;
+    }
+
     const [quack, updateQuack] = useState(null)
 
 
@@ -70,7 +84,7 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            {quack && <div>{parseQuackString(quack)}</div>}
+            {quack && <div id="quackbody">{parseQuackString(quack)}</div>}
         </div>
     )
 }
