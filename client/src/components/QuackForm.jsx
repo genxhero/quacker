@@ -35,9 +35,8 @@ const QuackForm = props => {
         const html = stateToHTML(editorState.getCurrentContent());
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
-        updateQuack(html)
-         debugger;
-        
+        // updateQuack(html)
+        updateQuack("@ass butt");        
     }
 
     const [quack, updateQuack] = useState(null)
@@ -71,9 +70,12 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            {quack && <div dangerouslySetInnerHTML={{__html: quack}}></div>}
+            {quack && <div>{parseQuackString(quack)}</div>}
         </div>
     )
 }
 
 export default QuackForm;
+
+//{quack && <div dangerouslySetInnerHTML={{__html: quack}}></div>}
+
