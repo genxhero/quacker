@@ -71,7 +71,7 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            {quack && {dangerouslySetInnerHTML={__html: quack} } }
+            {quack && <div dangerouslySetInnerHTML={`__html: ${quack}`}> </div> }
         </div>
     )
 }
