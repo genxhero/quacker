@@ -32,7 +32,9 @@ const QuackForm = props => {
 
     const  saveQuack =  (e) => {
         e.preventDefault();
-        const html = stateToHTML(editorState.getCurrentContent());
+        const quack = editorState.getCurrentContent();
+        debugger;
+        // const html = stateToHTML(editorState.getCurrentContent());
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
         // updateQuack(html)
@@ -40,14 +42,15 @@ const QuackForm = props => {
     }
 
     const parseQuackString = (string) => {
+        if (!string) return;
         const words = string.split(" ");
         let html = '';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@") {
-                html += '<span className="quack-text blue">' + '<a href="">' + words[i] + '</a>' + '</span>';
+                html += '<span className="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
 
             }else {
-                html += '<span className="quack-text normal">' + words[i] + '</span>';
+                html += '<span className="quack-text normal">' + words[i] + ' ' + '</span>';
             }
         }
         document.getElementById('quackbody').innerHTML = html;
@@ -84,7 +87,7 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            {quack && <div id="quackbody">{parseQuackString(quack)}</div>}
+            <div id="quackbody">{parseQuackString(quack)}</div>
         </div>
     )
 }
