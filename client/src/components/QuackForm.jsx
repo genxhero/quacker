@@ -1,7 +1,8 @@
 import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
-import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw} from 'draft-js';
+import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
+import {stateToHTML} from 'draft-js-export-html';
 import UserSearch from './UserSearch';
 
 
@@ -29,10 +30,18 @@ const QuackForm = props => {
         updateSearch({query: "", searching: false})
     }
 
-    const saveQuack = () => {
-        const string = JSON.stringify( convertToRaw(editorState.getCurrentContent()) );
-        debugger;
+    const  saveQuack =  (e) => {
+        e.preventDefault();
+        const html = stateToHTML(editorState.getCurrentContent());
+        // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
+        // const fromRaw = convertFromRaw(JSON.parse(string))
+        updateQuack(html)
+         debugger;
+        
     }
+
+    const [quack, updateQuack] =useState(null)
+
 
     const compositeDecorator = new CompositeDecorator([
         {
@@ -51,8 +60,6 @@ const QuackForm = props => {
       );
 
     const [userSearch, updateSearch ] = useState({query: "", searching: false});
-        console.log(editorState)
-  
     return (
         <div>
             <p>{<span>Current User: {props.currentUser}</span>}</p>
@@ -64,6 +71,7 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
+            {quack && {quack}}
         </div>
     )
 }
