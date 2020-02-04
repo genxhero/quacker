@@ -3,6 +3,11 @@ import React from 'react';
 const Quack = (props) => {
     const {body} = props;
 
+    /**
+     * TODO: Check against reply to or quack_id to determine if something is a link!
+     * has_at mayhaps or maybe ats can be an array of strings where
+     * There's a million ways to do it but I gotta get lunch
+     */
     const parseQuackString = (string) => {
         if (!string) return;
         const words = string.split(" ");
