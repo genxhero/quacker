@@ -32,13 +32,12 @@ const QuackForm = props => {
 
     const  saveQuack =  (e) => {
         e.preventDefault();
-        const quack = editorState.getCurrentContent();
-        debugger;
+        const quack = editorState.getCurrentContent().getPlainText();
         // const html = stateToHTML(editorState.getCurrentContent());
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
         // updateQuack(html)
-        updateQuack("@ass butt");        
+        updateQuack(quack);        
     }
 
     const parseQuackString = (string) => {
