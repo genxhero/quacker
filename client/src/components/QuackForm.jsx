@@ -40,20 +40,6 @@ const QuackForm = props => {
         updateQuack(quack);        
     }
 
-    const parseQuackString = (string) => {
-        if (!string) return;
-        const words = string.split(" ");
-        let html = '';
-        for(let i = 0; i < words.length; i++) {
-            if (words[i][0] === "@") {
-                html += '<span className="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
-
-            }else {
-                html += '<span className="quack-text normal">' + words[i] + ' ' + '</span>';
-            }
-        }
-        document.getElementById('quackbody').innerHTML = html;
-    }
 
     const [quack, updateQuack] = useState(null)
 
