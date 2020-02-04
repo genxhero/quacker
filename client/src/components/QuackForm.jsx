@@ -4,6 +4,8 @@ import {usernameStrategy, tagStrategy} from '../utils/strategies';
 import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import UserSearch from './UserSearch';
+//Temporary, just for testing 
+import Quack from './Quack';
 
 
 
@@ -72,6 +74,7 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
+            <Quack body={quack} />
         </div>
     )
 }

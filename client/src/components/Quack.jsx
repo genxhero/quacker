@@ -21,9 +21,13 @@ const Quack = (props) => {
     }
 
     return (
-        <div id="quackbody">
-            {parseQuackString(body)}
+        <div>
+            <div>You Quacked</div>
+            <div id="quackbody">
+                {parseQuackString(body)}
+            </div>
         </div>
+       
 
     )
 }
