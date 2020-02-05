@@ -17,7 +17,6 @@ module Types
       User.where("lower(username) like ?", "%#{parsed_query.downcase}%")
         .or(User.where("lower(first_name) like ?", "%#{parsed_query.downcase}%"))
         .or(User.where("lower(last_name) like ?", "%#{parsed_query.downcase}%")) 
-       
     end
 
   end
