@@ -1,5 +1,5 @@
 module Mutations
-    class AddRequack < BaseMutation
+    class AddQuack < BaseMutation
         argument :user_id, Integer, required: true
         argument :body, String, required: true
 
