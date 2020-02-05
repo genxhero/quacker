@@ -1,17 +1,18 @@
 module Mutations
     class AddQuack < BaseMutation
-        argument :user_id, Integer, required: true
         argument :body, String, required: true
+        type Types::QuackType
 
-        def resolve(user_id, body)
+        def resolve(body)
             quack = Quack.new
-            quack.user_id = user_id
             quack.body = body
-
+            quack.user_id = 1
+#            quack.user = context[:current_user]
+            #todo: context[:current_user]
             if quack.save
-                render json 
+                quack
             else
-                render json
+                { errors: quack.errors.full_messages }
             end
         end
 
