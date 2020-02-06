@@ -1,9 +1,10 @@
 module Mutations
     class AddQuack < BaseMutation
         argument :body, String, required: true
+        
         type Types::QuackType
 
-        def resolve(body)
+        def resolve(body: nil)
             quack = Quack.new
             quack.body = body
             quack.user_id = 1

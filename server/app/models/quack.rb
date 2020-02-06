@@ -34,9 +34,10 @@ class Quack < ApplicationRecord\
 
     def get_mentions
         actual_mentions = []
-        possible_mentions = self.body.split(" ").select(|string| string[0] == '@')
+        possible_mentions = self.body.split(" ").select {|string| string[0] == '@'}
         possible_mentions.each do |string|
-            actual_mentions << string if User.find_by(username: string)
+            sanitized = string.gsub(',', "")
+            actual_mentions << sanitized if User.find_by(username: sanitized[1..-1])
         end
         self.mentions = actual_mentions
     end
