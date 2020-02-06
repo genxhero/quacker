@@ -38,7 +38,7 @@ class Quack < ApplicationRecord\
         possible_mentions.each do |string|
             actual_mentions << string if User.find_by(username: string)
         end
-        actual_mentions
+        self.mentions = actual_mentions
     end
 
 end
