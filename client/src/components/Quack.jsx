@@ -20,8 +20,6 @@ const Quack = (props) => {
                 html += '<span className="quack-text normal">' + words[i] + ' ' + '</span>';
             }
         }
-        //TODO: if quackbody causes collision, change id to have id of quack appended to it maybe using index
-        //from whatever mapping function
         document.getElementById('quackbody').innerHTML = html;
     }
 
