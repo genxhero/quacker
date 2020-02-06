@@ -7,6 +7,7 @@ module Types
       field :reply_count, Integer, null: false, method: :reply_count 
       field :requack_count, Integer, null: false, method: :requack_count
       field :requackers, [UserType], null: true, method: :requackers
+      field :mentions, [String], null: true, method: :mentions
       #original gets the text of the original quack (basically, what you're retweeting)
       field :original, QuackType, null: true, method: :quack
           #LIKES NOT IMPLEMENTED YET
