@@ -20,7 +20,7 @@ class User < ApplicationRecord
     self.first_name = self.first_name.downcase.capitalize
     self.last_name = self.last_name.downcase.capitalize
     if !self.username || self.username == ""
-        self.username = "#{self.first_name}#{self.last_name[0..1]}#{(0...8).map { ('0'..'9').to_a[rand(10)] }.join}"
+        self.username = "#{self.first_name}#{self.last_name[0..1]}#{(0...8).map { ('0'..'9').to_a[rand(10)] }.join}".downcase
     else
         self.username = self.username.downcase
     end

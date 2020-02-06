@@ -1,4 +1,6 @@
 import React from 'react';
+import {useQuery} from '@apollo/react-hooks'
+import showQuack from '../queries/showQuack';
 
 const Quack = (props) => {
     const {body} = props;
