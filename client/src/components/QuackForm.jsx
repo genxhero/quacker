@@ -5,7 +5,7 @@ import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, conver
 import {stateToHTML} from 'draft-js-export-html';
 import UserSearch from './UserSearch';
 import { useMutation } from '@apollo/react-hooks';
-import addQuack from '../mutations/addQuack';
+import ADD_QUACK from '../mutations/addQuack';
 //Temporary, just for testing 
 import Quack from './Quack';
 
@@ -41,11 +41,12 @@ const QuackForm = props => {
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
         // updateQuack(html)
-        updateQuack(quack);        
+       addQuack({ variables: { body: quack} });      
     }
 
 
     const [quack, updateQuack] = useState(null)
+    const [addQuack, { data }] = useMutation(ADD_QUACK);
 
 
     const compositeDecorator = new CompositeDecorator([
