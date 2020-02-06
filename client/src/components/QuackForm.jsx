@@ -77,7 +77,6 @@ const QuackForm = props => {
             </Editor>
             <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
             {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            <Quack body={quack} />
         </div>
     )
 }
