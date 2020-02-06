@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import QuackForm from './components/QuackForm';
 import { ApolloProvider } from 'react-apollo';
 import client from './utils/apollo';
-
+import {Router, Switch} from 'react-router-dom';
 const App = () => {
 /**
  * I can use useEffect here to get the currently logged in user in order to give the current
@@ -13,7 +13,25 @@ const App = () => {
 
     return(
       <ApolloProvider client={client}>
-        <QuackForm currentUser={currentUser}/>
+         <Router>
+        <div className="quacker-app">
+          <div className="quacker-nav">
+            <ul>
+              <li>home</li>
+              <li>explore</li>
+              <li>notifications</li>
+              <li>messages</li>
+              <li>bookmarks</li>
+              <li>lists</li>
+              <li>profile</li>
+            </ul>
+          </div>
+
+          <div>
+          
+          </div>
+        </div>
+        </Router>
       </ApolloProvider>
     )
 }
