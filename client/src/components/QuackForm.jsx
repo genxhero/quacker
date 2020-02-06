@@ -4,6 +4,8 @@ import {usernameStrategy, tagStrategy} from '../utils/strategies';
 import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
 import {stateToHTML} from 'draft-js-export-html';
 import UserSearch from './UserSearch';
+import { useMutation } from '@apollo/react-hooks';
+import addQuack from '../mutations/addQuack';
 //Temporary, just for testing 
 import Quack from './Quack';
 
