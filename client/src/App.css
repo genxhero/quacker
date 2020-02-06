@@ -1,3 +1,22 @@
+.quacker-app {
+    display: flex;
+}
+
+
+.quacker-nav {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: column;
+}
+
+.middle-content {
+    border: 0 solid black;
+    box-sizing: border-box;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+}
+
+
 .user-search-results {
     box-shadow: rgba(101, 119, 134, 0.2) 0px 0px 15px, 
                 rgba(101, 119, 134, 0.15) 0px 0px 3px 1px;

@@ -2,7 +2,7 @@ import React from 'react'
 
 const QuackerNav = (props) => {
     return (
-    <div className="quacker-nav">
+    <div className="navbar">
         <ul>
           <li>home</li>
           <li>explore</li>

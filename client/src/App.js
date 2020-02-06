@@ -3,7 +3,7 @@ import HomeFeed from './components/HomeFeed';
 import QuackerNav from './components/QuackerNav';
 import { ApolloProvider } from 'react-apollo';
 import client from './utils/apollo';
-import {Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 const App = () => {
 /**
  * I can use useEffect here to get the currently logged in user in order to give the current
@@ -15,18 +15,22 @@ const App = () => {
     return(
       <ApolloProvider client={client}>
          <Router>
-          <div className="quacker-app">
+          <div className="container">  
+          <div className="row">
+            <div className="col-sm">
+              <QuackerNav />
+            </div>
+              <div className="col-sm">
+                <Switch>
+                  <Route  path = "/home" component={HomeFeed} />
+                </Switch>
+              </div>
             
-           <QuackerNav />
-
-            <Switch>
-              <Route exact path = "/home" component={HomeFeed} />
-            </Switch>
-         
-
-          <div>
-            All the stuff on the right goes here.
-          </div>
+              <div className="com-sm">
+                All the stuff on the right goes here.
+              </div>
+          </div>          
+        
         </div>
         </Router>
       </ApolloProvider>
