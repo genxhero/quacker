@@ -5,7 +5,6 @@ const addQuack = gql`mutation  addQuack ($body: String!) {
       id
       body
       mentions
-      
       }
     }`
 
