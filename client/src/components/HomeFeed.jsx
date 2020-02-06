@@ -9,3 +9,5 @@ const HomeFeed = (props) => {
         </div>
     )
 }
+
+export default HomeFeed;
