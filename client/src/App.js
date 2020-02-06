@@ -16,10 +16,10 @@ const App = () => {
       <ApolloProvider client={client}>
          <Router>
           <div className="container">  
-          <div className="row">
-            <div className="col-sm">
-              <QuackerNav />
-            </div>
+            <div className="row">
+              <div className="col-sm">
+                <QuackerNav />
+              </div>
               <div className="col-sm">
                 <Switch>
                   <Route  path = "/home" component={HomeFeed} />
