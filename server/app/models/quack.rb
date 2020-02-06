@@ -32,4 +32,13 @@ class Quack < ApplicationRecord\
         self.replies.count
     end
 
+    def get_mentions
+        actual_mentions = []
+        possible_mentions = self.body.split(" ").select(|string| string[0] == '@')
+        possible_mentions.each do |string|
+            actual_mentions << string if User.find_by(username: string)
+        end
+        actual_mentions
+    end
+
 end
