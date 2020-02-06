@@ -17,17 +17,7 @@ const App = () => {
          <Router>
           <div className="quacker-app">
             
-            <div className="quacker-nav">
-              <ul>
-                <li>home</li>
-                <li>explore</li>
-                <li>notifications</li>
-                <li>messages</li>
-                <li>bookmarks</li>
-                <li>lists</li>
-                <li>profile</li>
-              </ul>
-            </div>
+           <QuackerNav />
 
             <Switch>
               <Route exact path = "/home" component={HomeFeed} />
