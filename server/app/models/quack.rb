@@ -49,4 +49,11 @@ class Quack < ApplicationRecord\
         clean_mentions
     end
 
+    def get_usernames(array)
+        usernames = {}
+        users = User.where(username: possible_mentions.map{|mention| mention[1..-1].downcase } )
+        users.each {|user| usernames["@#{user.username}"] = true}
+        usernames
+    end
+
 end
