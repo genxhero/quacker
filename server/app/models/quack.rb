@@ -33,13 +33,21 @@ class Quack < ApplicationRecord\
     end
 
     def get_mentions
-        possible_mentions = self.body.split(" ").select {|string| string[0] == '@'}
+        possible_mentions = self.get_possible_mentions
         usernames = {}
-        users = User.where(username: possible_mentions.map(&:downcase))
+        users = User.where(username: possible_mentions.map{|mention| mention[1..-1].downcase } )
         users.inject {|user| usernames["@#{user.username}"] = true}
-        actual_mentions = possible_mentions.select  {|string| usernames[string.gsub(/[^a-zA-Z0-9\-@]/,"").downcase] }
+        actual_mentions = possible_mentions.select  {|string| usernames[string] }
         debugger;
         self.mentions = actual_mentions.uniq
+    end
+
+    private 
+
+    def get_possible_mentions
+        raw_mentions = self.body.split(" ").select {|string| string[0] == '@'}
+        clean_mentions = raw_mentions.map {|mention| mention.gsub(/[^a-zA-Z0-9\-@]/,"").downcase}
+        clean_mentions
     end
 
 end
