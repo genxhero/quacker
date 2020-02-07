@@ -9,6 +9,15 @@ module Types
      Quack.all.order(created_at: :desc)
     end
 
+    field :show_quack, QuackType, null: true do 
+      argument :id, Integer, required: true
+    end
+    def show_quack(id: nil) 
+      quack = Quack.find(id)
+      return {errors: ["Quack not found!"]} if !quack
+      quack
+    end
+
     field :user_search, [UserType], null: true do 
       argument :query, String, required: true
     end
