@@ -1,6 +1,7 @@
 import React from 'react';
 import {useQuery} from '@apollo/react-hooks'
 import showQuack from '../queries/showQuack';
+import parse from 'html-react-parser';
 
 const Quack = (props) => {
     const quackId = parseInt(props.match.params.quackId)
@@ -20,7 +21,7 @@ const Quack = (props) => {
     const parseQuackString = (string) => {
         if (!string) return;
         const words = string.split(" ");
-        let html = '';
+        let html = '<div>';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@" && quack.mentions.includes(words[i])) {
                 html += '<span className="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
@@ -29,13 +30,15 @@ const Quack = (props) => {
                 html += '<span className="quack-text normal">' + words[i] + ' ' + '</span>';
             }
         }
-        debugger;
-        document.getElementById('quackbody').innerHTML = html;
+        html += '</div>'
+        const element = parse(html)
+        return element;
+        // document.getElementById('quackbody').innerHTML = html;
     }
     console.log(quack)
     return (
         <div>
-            <div>{quack.user.userName} Quacked</div>
+            <div>{quack.user.username} Quacked</div>
             <div id="quackbody">
                 {parseQuackString(quack.body)}
             </div>
