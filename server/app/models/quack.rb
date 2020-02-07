@@ -35,6 +35,8 @@ class Quack < ApplicationRecord\
     def get_mentions
         possible_mentions = self.body.split(" ").select {|string| string[0] == '@'}
         hash = {}
+        users = User.where(username: possible_mentions.map(&:downcase))
+        debugger;
         User.all.inject {|user| hash["@#{user.username}"] = true}
         actual_mentions = possible_mentions.select  {|string| usernames[string.gsub(/[^a-zA-Z0-9\-@]/,"").downcase] }
         self.mentions = actual_mentions.uniq
