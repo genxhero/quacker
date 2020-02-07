@@ -32,6 +32,7 @@ class Quack < ApplicationRecord\
         self.replies.count
     end
 
+    #Wait a tic, can't I just populate actual_mentions with users.map??
     def get_mentions
         possible_mentions = self.get_possible_mentions
         usernames = {}
