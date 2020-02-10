@@ -25,21 +25,22 @@ const App = () => {
       <ApolloProvider client={client}>
          <Router>
           <div className="container">  
-            <div className="row">
-              <div className="col-sm">
+            <div className="row no-gutters">
+              <div className="col">
                 <QuackerNav />
               </div>
-              <div className="col-sm">
+              <div className="col-6">
                 <Switch>
                   <Route  path = "/home" component={HomeFeed} />
                   <Route exact path = "/:username/status/:quackId" component={Quack} />
                 </Switch>
               </div>
             
-              <div className="com-sm">
+              <div className="col">
                 <Switch>
                   <Route path="/home" component={TemporaryRightA}/>
                   <Route path = "/explore" component={TemporaryRightB} />
+                  <Route exact path = "/:username/status/:quackId" component={TemporaryRightA} />
                 </Switch>
               </div>
           </div>          
