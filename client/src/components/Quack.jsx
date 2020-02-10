@@ -43,9 +43,10 @@ const Quack = (props) => {
         <div className="card">
          <div className="container-fluid" width="10rem">
                 <div id="quack-user-data" className="row"> 
-                 
-                        <img className="rounded-circle"src={avatarLink} alt={username}/> 
-                    
+                        <img className="rounded-circle"
+                             src={avatarLink} 
+                             alt={username}
+                             /> 
                     <p className="col-s">
                         <p><strong>{firstName} </strong>{' '}<strong>{lastName}</strong></p>
                         <div>{`@${username}`} </div>
