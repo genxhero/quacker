@@ -12,6 +12,8 @@ const Quack = (props) => {
       if (error) return <p id="quackbody">Error...</p>
     const quack = data.showQuack;
     const {username, firstName, lastName} = quack.user;
+       //TODO: add avatarLink to user model.
+    const avatarLink =  "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
 
     /**
      * TODO: Check against reply to or quack_id to determine if something is a link!
@@ -36,24 +38,26 @@ const Quack = (props) => {
         return element;
         // document.getElementById('quackbody').innerHTML = html;
     }
-    //TODO: add avatarLink to user model.
-    const avatarLink =  "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
-
+ 
     return (
         <div className="card">
-            <div id="quack-user-data" className="row"> 
-                <div className="user-search-avatar col-s"> 
-                    <img src={avatarLink} alt={username}/> 
+         <div className="container-fluid" width="10rem">
+                <div id="quack-user-data" className="row"> 
+                 
+                        <img className="rounded-circle"src={avatarLink} alt={username}/> 
+                    
+                    <p className="col-s">
+                        <p><strong>{firstName} </strong>{' '}<strong>{lastName}</strong></p>
+                        <div>{`@${username}`} </div>
+                    </p>  
                 </div>
-                <div className="col-s">
-                    <p><strong>{firstName} </strong>{' '}<strong>{lastName}</strong></p>
-                    <div>{`@${username}`} </div>
-                </div>  
-            </div>
-            <div id="quackbody" className="card-body">
-                {parseQuackString(quack.body)}
+                <p id="quackbody" className="card-body">
+                    {parseQuackString(quack.body)}
+                </p>
             </div>
         </div>
+       
+        
        
 
     )
