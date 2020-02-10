@@ -9,6 +9,30 @@
     flex-direction: column;
 }
 
+.nav-link-content {
+    display: flex;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    border-radius: 4px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    min-height: 0px;
+    min-width: 0px;
+}
+
+.nav-link-content:hover {
+    color: #3291DA;
+    background: #EBF5FD;
+    text-decoration: none;
+}
+
+
+
 .middle-content {
     border: 0 solid black;
     box-sizing: border-box;
