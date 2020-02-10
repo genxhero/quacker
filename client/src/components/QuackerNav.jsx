@@ -1,7 +1,9 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 
 const QuackerNav = (props) => {
+    debugger;
+
     return (
     <div style={{"display":"flex", "flexDirection":"column"}}>
           <Link to="/home">
@@ -27,4 +29,4 @@ const QuackerNav = (props) => {
     )
 }
 
-export default QuackerNav;
+export default withRouter(QuackerNav);
