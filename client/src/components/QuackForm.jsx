@@ -15,6 +15,10 @@ import Quack from './Quack';
  * 
  * currentUser: Object, the current user performing the quack action.
  * close: Function, to be called upon completion of the form to close the form.
+ * 
+ * Plan
+ * 
+ * Make this into a modal using Bootstrap.
  */
 
 const QuackForm = props => {
