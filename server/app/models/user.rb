@@ -5,6 +5,11 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true 
   validates :email, presence: true, uniqueness: true
 
+  has_many :quacks,
+  primary_key: :id,
+  foreign_key: :user_id,
+  class_name: "Quack"
+
   def reset_token
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
