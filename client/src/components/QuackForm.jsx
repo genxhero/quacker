@@ -10,6 +10,12 @@ import ADD_QUACK from '../mutations/addQuack';
 import Quack from './Quack';
 
 
+/**
+ * Props
+ * 
+ * currentUser: Object, the current user performing the quack action.
+ * close: Function, to be called upon completion of the form to close the form.
+ */
 
 const QuackForm = props => {
 
@@ -41,7 +47,9 @@ const QuackForm = props => {
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
         // updateQuack(html)
-       addQuack({ variables: { body: quack} });      
+       addQuack({ variables: { body: quack} }).then(res => {
+           props.close();
+       });      
     }
 
 
