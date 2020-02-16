@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Quack from './Quack';
+import QuackForm from './QuackForm';
 import { useQuery } from '@apollo/react-hooks';
 
 /**
@@ -7,9 +8,12 @@ import { useQuery } from '@apollo/react-hooks';
  */
 
 const HomeFeed = (props) => {
+    const [quacking, toggleQuackForm] = useState(false);
     return (
         <div className="quack-feed">
             You quack me up
+            <button onClick={() => toggleQuackForm(true)}/>
+            {quacking && <QuackForm />}
         </div>
     )
 }
