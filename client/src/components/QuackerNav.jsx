@@ -2,8 +2,6 @@ import React from 'react'
 import {Link, withRouter} from 'react-router-dom';
 
 const QuackerNav = (props) => {
-    debugger;
-
     return (
     <div style={{"display":"flex", "flexDirection":"column"}}>
           <Link to="/home">
