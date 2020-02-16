@@ -12,7 +12,7 @@ const HomeFeed = (props) => {
     return (
         <div className="quack-feed">
             You quack me up
-            <button onClick={() => toggleQuackForm(true)}/>
+            <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
             {quacking && <QuackForm />}
         </div>
     )

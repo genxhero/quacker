@@ -9,6 +9,13 @@
     flex-direction: column;
 }
 
+.new-quack-btn {
+    background: rgb(29, 161, 242);
+    color: white;
+    font-family: sans-serif;
+    padding: 2rem;
+}
+
 .nav-link-content {
     display: flex;
     padding: .5rem;
