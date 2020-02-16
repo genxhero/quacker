@@ -13,7 +13,7 @@ const HomeFeed = (props) => {
         <div className="quack-feed">
             You quack me up
             <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
-            {quacking && <QuackForm />}
+            {quacking && <QuackForm close={() => toggleQuackForm(false)} />}
         </div>
     )
 }
