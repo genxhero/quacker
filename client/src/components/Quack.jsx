@@ -3,6 +3,12 @@ import {useQuery} from '@apollo/react-hooks'
 import showQuack from '../queries/showQuack';
 import parse from 'html-react-parser';
 
+/**
+ * This component needs to be split into two:
+ * 1) The "show page" which handles the querying
+ * 2) The Quack itself which just has data.
+ */
+
 const Quack = (props) => {
     const quackId = parseInt(props.match.params.quackId)
     const {loading, error, data} = useQuery(showQuack, {
