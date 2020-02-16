@@ -9,6 +9,15 @@ module Types
      Quack.all.order(created_at: :desc)
     end
 
+    field :home_feed_quacks, [QuackType], null: true do
+      argument :id, Integer, required: true
+    end
+    def home_feed_quacks(id: nil)
+      user = User.find(id)
+      quacks = user.quacks + Quack.where(user_id: user.followings)
+      quacks
+    end
+
     field :show_quack, QuackType, null: true do 
       argument :id, Integer, required: true
     end
