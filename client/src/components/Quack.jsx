@@ -45,14 +45,14 @@ const Quack = (props) => {
                              src={avatarLink} 
                              alt={username}
                              /> 
-                    <p className="col-s">
-                        <p><strong>{firstName} </strong>{' '}<strong>{lastName}</strong></p>
+                    <div className="col-s">
+                        <div><strong>{firstName} </strong>{' '}<strong>{lastName}</strong></div>
                         <div>{`@${username}`} </div>
-                    </p>  
+                    </div>  
                 </div>
-                <p id="quackbody" className="card-body">
+                <div id="quackbody" className="card-body">
                     {parseQuackString(quack.body)}
-                </p>
+                </div>
             </div>
         </div>
        

@@ -11,8 +11,6 @@ const QuackShow = props => {
       if (loading) return <p id="quackbody"> Loading ...</p>;
       if (error) return <p id="quackbody">Error...</p>
       const quack = data.showQuack;
-      debugger;
-
       return (
           <Quack quack={quack} />
       )

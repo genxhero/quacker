@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import HomeFeed from './components/HomeFeed';
 import QuackerNav from './components/QuackerNav';
-import QuackShow from './components/Quack';
+import QuackShow from './components/QuackShow';
 import { ApolloProvider } from 'react-apollo';
 import client from './utils/apollo';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';

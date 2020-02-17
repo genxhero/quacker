@@ -16,16 +16,13 @@ const HomeFeed = (props) => {
     if (loading) return <p id="quackbody"> Loading ...</p>;
     if (error) return <p id="quackbody">Error...</p>
     const quacks = data.homeFeedQuacks;
-    debugger;
     return (
         <div className="quack-feed">
             You quack me up
             <div className="col-lg">
                 {quacks.map(quack => {
-                    return <div> 
-                <span>{quack.body}</span>
-                    </div>
-                })}
+                    return <Quack quack={quack}/> 
+                 })}
             </div>
             <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
             {quacking && <QuackForm close={() => toggleQuackForm(false)} />}
