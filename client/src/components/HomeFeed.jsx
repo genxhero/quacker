@@ -21,7 +21,7 @@ const HomeFeed = (props) => {
             You quack me up
             <div className="col-lg">
                 {quacks.map(quack => {
-                    return <Quack quack={quack}/> 
+                    return <Quack quack={quack} key={quack.body}/> 
                  })}
             </div>
             <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
