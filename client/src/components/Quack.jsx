@@ -1,7 +1,20 @@
 import React from 'react';
 import parse from 'html-react-parser';
 
-
+/**
+ * PROPS
+ * 
+ * quack: Object, it's the thing being quacked.
+ *              {
+ *                  body: String, 
+ *                  user: {
+ *                      firstName: String, 
+ *                      lastName: String}, 
+ *                  original: Quack, 
+ *                  created: String
+ *                }
+ * layer: Integer, if 0 them it's  a quack. If 1, it's a requack
+ */
 const Quack = (props) => {
     //TODO: add avatarLink to user model.
     const avatarLink =  "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
@@ -41,7 +54,7 @@ const Quack = (props) => {
                 <div id="quackbody" className="card-body">
                     {parseQuackString(quack.body)}
                 </div>
-                {quack.original && <Quack quack={quack.original} />}
+                {(quack.original && props.layer === 0)&& <Quack quack={quack.original} layer={1} />}
             </div>
         </div>
        

@@ -12,7 +12,7 @@ const QuackShow = props => {
       if (error) return <p id="quackbody">Error...</p>
       const quack = data.showQuack;
       return (
-          <Quack quack={quack} />
+          <Quack quack={quack} layer={0}/>
       )
 }
 
