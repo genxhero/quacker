@@ -1,6 +1,4 @@
 import React from 'react';
-import {useQuery} from '@apollo/react-hooks'
-import showQuack from '../queries/showQuack';
 import parse from 'html-react-parser';
 
 /**
@@ -10,17 +8,11 @@ import parse from 'html-react-parser';
  */
 
 const Quack = (props) => {
-    const quackId = parseInt(props.match.params.quackId)
-    const {loading, error, data} = useQuery(showQuack, {
-        variables: { id: quackId},
-      });
-      if (loading) return <p id="quackbody"> Loading ...</p>;
-      if (error) return <p id="quackbody">Error...</p>
-    const quack = data.showQuack;
-    const {username, firstName, lastName} = quack.user;
+    
        //TODO: add avatarLink to user model.
     const avatarLink =  "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
-
+    const quack = props.quack
+    const {firstName, username, lastName} = quack.user;
     /**
      * TODO: Check against reply to or quack_id to determine if something is a link!
      * has_at mayhaps or maybe ats can be an array of strings where
