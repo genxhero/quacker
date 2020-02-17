@@ -2,13 +2,10 @@ import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
 import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
-import {stateToHTML} from 'draft-js-export-html';
 import UserSearch from './UserSearch';
 import { useMutation } from '@apollo/react-hooks';
 import ADD_QUACK from '../mutations/addQuack';
-//Temporary, just for testing 
-import Quack from './Quack';
-
+import homeFeedQuacks from '../queries/homeFeedQuacks';
 
 /**
  * Props
@@ -51,7 +48,7 @@ const QuackForm = props => {
         // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
         // const fromRaw = convertFromRaw(JSON.parse(string))
         // updateQuack(html)
-       addQuack({ variables: { body: quack} }).then(res => {
+       addQuack({ variables: { body: quack}, refetchQueries: {query: homeFeedQuacks, variables: { id: 1}} }).then(res => {
            props.close();
        });      
     }

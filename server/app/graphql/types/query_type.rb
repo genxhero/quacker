@@ -14,7 +14,8 @@ module Types
     end
     def home_feed_quacks(id: nil)
       user = User.find(id)
-      quacks = user.quacks + Quack.where(user_id: user.followings)
+      ids = [user.id] + user.followings
+      quacks = Quack.where(user_id: ids).order("created_at DESC");
       quacks
     end
 

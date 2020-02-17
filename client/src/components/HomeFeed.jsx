@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Quack from './Quack';
-import QuackForm from './QuackForm';
 import { useQuery } from '@apollo/react-hooks';
 import homeFeedQuacks from '../queries/homeFeedQuacks';
 
@@ -9,7 +8,6 @@ import homeFeedQuacks from '../queries/homeFeedQuacks';
  */
 
 const HomeFeed = (props) => {
-    const [quacking, toggleQuackForm] = useState(false);
     const {loading, error, data} = useQuery(homeFeedQuacks, {
         variables: { id: 1},
       });
@@ -21,11 +19,10 @@ const HomeFeed = (props) => {
             You quack me up
             <div className="col-lg">
                 {quacks.map(quack => {
-                    return <Quack quack={quack} key={quack.body} layer={0}/> 
+                    return <Quack quack={quack} key={`${quack.body}${quack.user.username}`} layer={0}/> 
                  })}
             </div>
-            <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
-            {quacking && <QuackForm close={() => toggleQuackForm(false)} />}
+          
         </div>
     )
 }
