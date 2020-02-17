@@ -28,7 +28,7 @@ const Quack = (props) => {
         let html = '<div>';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@" && quack.mentions.includes(words[i])) {
-                html += '<span class="quack-text blue">' + '<a class="mention-link" href="">' + words[i] + ' ' + '</a>' + '</span>';
+                html += '<span class="quack-text blue">' + `<a class="mention-link" href="/${words[i].slice(1)}">` + words[i] + ' ' + '</a>' + '</span>';
 
             }else {
                 html += '<span class="quack-text normal">' + words[i] + ' ' + '</span>';
@@ -42,7 +42,7 @@ const Quack = (props) => {
     const link = `/${username}/status/${quack.id}`;
  
     return (
-        <div className="card" onClick={() => props.history.push(link)}>
+        <div className="quack card" onClick={() => props.history.push(link)}>
          <div className="container-fluid" width="10rem">
                 <div id="quack-user-data" className="row"> 
                         <img className="rounded-circle"

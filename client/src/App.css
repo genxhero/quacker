@@ -9,6 +9,21 @@
     flex-direction: column;
 }
 
+.quack {
+    position: relative;
+    z-index: 800;
+}
+
+.quack-text{
+    position: relative;
+    z-index: 800;
+}
+
+.mention-link {
+    position: relative;
+    z-index: 2000;
+}
+
 .new-quack-btn {
     background: rgb(29, 161, 242);
     color: white;
