@@ -37,6 +37,8 @@ const Quack = (props) => {
         const element = parse(html)
         return element;
     }
+
+    const link = `/${username}/status/:${quack.id}`;
  
     return (
         <div className="card">
@@ -47,7 +49,7 @@ const Quack = (props) => {
                              alt={username}
                              /> 
                     <div className="col-s">
-    <div><strong>{firstName} </strong>{' '}<strong>{lastName}</strong> </div>
+                             <div><strong>{firstName} </strong>{' '}<strong>{lastName}</strong> </div>
                         <div>{`@${username}`} </div>
                     </div>  
                 </div>
