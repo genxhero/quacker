@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import HomeFeed from './components/HomeFeed';
 import QuackerNav from './components/QuackerNav';
-import Quack from './components/Quack';
+import QuackShow from './components/Quack';
 import { ApolloProvider } from 'react-apollo';
 import client from './utils/apollo';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -32,7 +32,7 @@ const App = () => {
               <div className="col-6">
                 <Switch>
                   <Route  path = "/home" component={HomeFeed} />
-                  <Route exact path = "/:username/status/:quackId" component={Quack} />
+                  <Route exact path = "/:username/status/:quackId" component={QuackShow} />
                 </Switch>
               </div>
             
