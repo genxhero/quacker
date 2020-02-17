@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 const homeFeedQuacks = gql`
 query homeFeedQuacks($id: Int!){
     homeFeedQuacks(id: $id) {
+        id
         body
         mentions
         original {

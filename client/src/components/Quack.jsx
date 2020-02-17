@@ -1,5 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
+import {withRouter} from 'react-router-dom';
 
 /**
  * PROPS
@@ -27,7 +28,7 @@ const Quack = (props) => {
         let html = '<div>';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@" && quack.mentions.includes(words[i])) {
-                html += '<span class="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
+                html += '<span class="quack-text blue">' + '<a class="mention-link" href="">' + words[i] + ' ' + '</a>' + '</span>';
 
             }else {
                 html += '<span class="quack-text normal">' + words[i] + ' ' + '</span>';
@@ -38,10 +39,10 @@ const Quack = (props) => {
         return element;
     }
 
-    const link = `/${username}/status/:${quack.id}`;
+    const link = `/${username}/status/${quack.id}`;
  
     return (
-        <div className="card">
+        <div className="card" onClick={() => props.history.push(link)}>
          <div className="container-fluid" width="10rem">
                 <div id="quack-user-data" className="row"> 
                         <img className="rounded-circle"
@@ -63,4 +64,4 @@ const Quack = (props) => {
     )
 }
 
-export default Quack;
+export default withRouter(Quack);
