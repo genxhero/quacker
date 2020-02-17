@@ -25,10 +25,10 @@ const Quack = (props) => {
         let html = '<div>';
         for(let i = 0; i < words.length; i++) {
             if (words[i][0] === "@" && quack.mentions.includes(words[i])) {
-                html += '<span className="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
+                html += '<span class="quack-text blue">' + '<a href="">' + words[i] + ' ' + '</a>' + '</span>';
 
             }else {
-                html += '<span className="quack-text normal">' + words[i] + ' ' + '</span>';
+                html += '<span class="quack-text normal">' + words[i] + ' ' + '</span>';
             }
         }
         html += '</div>'
