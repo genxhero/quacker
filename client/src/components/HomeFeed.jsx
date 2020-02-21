@@ -17,7 +17,7 @@ const HomeFeed = (props) => {
     const quacks = data.homeFeedQuacks;
     return (
         <div className="quack-feed">
-            <QuackForm isModal={false}/>
+            <QuackForm isModal={false} close={() => {}}/>
             <div className="col-lg">
                 {quacks.map(quack => {
                     return <Quack quack={quack} key={`${quack.body}${quack.user.username}`} layer={0}/> 
