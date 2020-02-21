@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
-import {Editor, EditorState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
+import {Editor, EditorState, ContentState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
 import UserSearch from './UserSearch';
 import { useMutation } from '@apollo/react-hooks';
 import ADD_QUACK from '../mutations/addQuack';
@@ -44,12 +44,15 @@ const QuackForm = props => {
     const  saveQuack =  (e) => {
         e.preventDefault();
         const quack = editorState.getCurrentContent().getPlainText();
-        // const html = stateToHTML(editorState.getCurrentContent());
-        // const string =  JSON.stringify(convertToRaw(editorState.getCurrentContent()));
-        // const fromRaw = convertFromRaw(JSON.parse(string))
-        // updateQuack(html)
-       addQuack({ variables: { body: quack}, refetchQueries: {query: homeFeedQuacks, variables: { id: 1}} }).then(res => {
-           props.close();
+        addQuack({ variables: { body: quack}, refetchQueries: ['homeFeedQuacks'] }).then(res => {
+           
+            if (props.isModal) {
+                props.close();
+            } else {
+                const resetState = EditorState.push(editorState, ContentState.createFromText(''));
+                setEditorState({ resetState });
+            }
+        
        });      
     }
 
