@@ -24,6 +24,10 @@
     width: 100%;
 }
 
+.modal {
+    position: absolute;
+}
+
 .mention-link {
     position: relative;
     z-index: 2000;

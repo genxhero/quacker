@@ -79,16 +79,19 @@ const QuackForm = props => {
 
     const [userSearch, updateSearch ] = useState({query: "", searching: false});
     return (
-        <div className={`quack-form ${isModal ? 'modal' : ''}`}>
-            <p>{<span>Current User: {props.currentUser}</span>}</p>
-            <Editor editorState={editorState} 
-                    onChange={setEditorState}
-                    keyBindingFn={handleBackspace}
-                    >
-                        
-            </Editor>
-            <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
-            {userSearch.searching  && <UserSearch userSearch={userSearch} />}
+        <div className={`quack-form-${props.isModal ? 'modal' : 'feed'}`}>
+            <div>
+                <p>{<span>Current User: {props.currentUser}</span>}</p>
+                <Editor editorState={editorState} 
+                        onChange={setEditorState}
+                        keyBindingFn={handleBackspace}
+                        >
+                            
+                </Editor>
+            </div>
+                <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
+                {userSearch.searching  && <UserSearch userSearch={userSearch} />}
+            
         </div>
     )
 }

@@ -6,7 +6,7 @@ import QuackForm from './QuackForm';
 const QuackerNav = (props) => {
     const [quacking, toggleQuackForm] = useState(false);
     const location = props.location.pathname.slice(1);
-
+    console.log(quacking)
     return (
     <div style={{"display":"flex", "flexDirection":"column"}}>
           <Link to="/home">
@@ -29,7 +29,7 @@ const QuackerNav = (props) => {
           <li>lists</li>
           <li>profile</li>
           <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
-          {quacking && <QuackForm close={() => toggleQuackForm(false)} location={location} isModal={true}/>}
+          {quacking && <div className={"modal"}> <QuackForm close={() => toggleQuackForm(false)} location={location} isModal={true}/> </div>}
     </div>
     )
 }
