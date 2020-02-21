@@ -19,6 +19,11 @@
     z-index: 800;
 }
 
+
+.quack-form {
+    width: 100%;
+}
+
 .mention-link {
     position: relative;
     z-index: 2000;
