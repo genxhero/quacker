@@ -20,8 +20,12 @@
 }
 
 
-.quack-form {
+.quack-form-modal {
     width: 100%;
+}
+
+.quack-form-feed {
+    
 }
 
 .modal {
