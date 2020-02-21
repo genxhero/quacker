@@ -79,7 +79,7 @@ const QuackForm = props => {
 
     const [userSearch, updateSearch ] = useState({query: "", searching: false});
     return (
-        <div>
+        <div className={`quack-form ${isModal ? 'modal' : ''}`}>
             <p>{<span>Current User: {props.currentUser}</span>}</p>
             <Editor editorState={editorState} 
                     onChange={setEditorState}
