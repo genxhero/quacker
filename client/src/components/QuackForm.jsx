@@ -81,6 +81,10 @@ const QuackForm = props => {
     return (
         <div className={`quack-form-${props.isModal ? 'modal' : 'feed'}`}>
             <div>
+                {props.isModal && <div className="modal-close" onClick={props.close}>X</div>}        
+            </div>
+            <div>
+                
                 <p>{<span>Current User: {props.currentUser}</span>}</p>
                 <Editor editorState={editorState} 
                         onChange={setEditorState}
@@ -89,9 +93,10 @@ const QuackForm = props => {
                             
                 </Editor>
             </div>
-                <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
+                <div>
+                    <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
+                </div>
                 {userSearch.searching  && <UserSearch userSearch={userSearch} />}
-            
         </div>
     )
 }
