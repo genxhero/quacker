@@ -21,15 +21,22 @@
 
 
 .quack-form-modal {
-    width: 100%;
+    min-width: fit-content;
+    background: white;
+    border-radius: 4px;
 }
 
 .quack-form-feed {
-    
+
 }
 
 .modal {
-    position: absolute;
+    /* position: absolute; */
+    background: rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .mention-link {
