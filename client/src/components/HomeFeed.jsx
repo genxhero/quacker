@@ -2,6 +2,7 @@ import React from 'react';
 import Quack from './Quack';
 import { useQuery } from '@apollo/react-hooks';
 import homeFeedQuacks from '../queries/homeFeedQuacks';
+import QuackForm from './QuackForm';
 
 /**
  * This component renders 
@@ -16,7 +17,7 @@ const HomeFeed = (props) => {
     const quacks = data.homeFeedQuacks;
     return (
         <div className="quack-feed">
-            You quack me up
+            <QuackForm isModal={false}/>
             <div className="col-lg">
                 {quacks.map(quack => {
                     return <Quack quack={quack} key={`${quack.body}${quack.user.username}`} layer={0}/> 
