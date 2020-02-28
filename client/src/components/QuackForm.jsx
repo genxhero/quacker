@@ -89,12 +89,14 @@ const QuackForm = props => {
                 <Editor editorState={editorState} 
                         onChange={setEditorState}
                         keyBindingFn={handleBackspace}
+                        className={"quack-form-text"}
+                        id="quack-editor"
                         >
                             
                 </Editor>
             </div>
                 <div>
-                    <button style={{"padding":"2rem", "color":"black"}}onClick={saveQuack} value="Quack">Quack</button>
+                    <button className={"quack-save-btn"} onClick={saveQuack} value="Quack">Quack</button>
                 </div>
                 {userSearch.searching  && <UserSearch userSearch={userSearch} />}
         </div>
