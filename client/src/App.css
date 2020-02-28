@@ -24,10 +24,27 @@
     min-width: 600px;
     background: white;
     border-radius: 4px;
+    padding:1rem;
 }
 
 .quack-form-feed {
 
+}
+
+.quack-form-text {
+    border: 1px solid lightgrey;
+
+}
+
+.quack-save-btn {
+    background-color: rgb(29, 161, 242);
+    min-width: calc(62.79px);
+    color: white;
+    font-family: sans-serif;
+    border:none;
+    border-radius: 5px;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 .modal {
