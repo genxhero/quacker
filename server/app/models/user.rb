@@ -10,12 +10,13 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: "Quack"
 
+  #Get a fresh session token
   def reset_token
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
   end
-
+  #Make sure that a session token exists.
   def ensure_token
     self.session_token ||= SecureRandom::urlsafe_base64
   end
