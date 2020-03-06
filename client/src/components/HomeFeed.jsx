@@ -5,7 +5,7 @@ import homeFeedQuacks from '../queries/homeFeedQuacks';
 import QuackForm from './QuackForm';
 
 /**
- * This component renders 
+ * This component renders a user's quacks as well as recent quacks from quackers that the user follows
  */
 
 const HomeFeed = (props) => {
