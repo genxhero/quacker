@@ -1,3 +1,5 @@
+#This is a quack. Its a short message that can be sent to anyone.
+
 class Quack < ApplicationRecord\
 
     belongs_to :user,
