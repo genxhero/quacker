@@ -20,6 +20,7 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom::urlsafe_base64
   end
 
+  #This ensures that a username exists, that names are properly formatted.
   def format_vitals
     self.email = self.email.downcase
     self.first_name = self.first_name.downcase.capitalize
