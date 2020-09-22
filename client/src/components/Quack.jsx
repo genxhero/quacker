@@ -1,6 +1,7 @@
 import React from 'react';
 import parse from 'html-react-parser';
 import {withRouter} from 'react-router-dom';
+/*eslint-disable no-useless-concat */
 
 /**
  * PROPS
@@ -16,6 +17,8 @@ import {withRouter} from 'react-router-dom';
  *                }
  * layer: Integer, if 0 them it's  a quack. If 1, it's a requack
  */
+
+
 const Quack = (props) => {
     //TODO: add avatarLink to user model.
     const avatarLink =  "https://abs.twimg.com/sticky/default_profile_images/default_profile_bigger.png"
