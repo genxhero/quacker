@@ -59,7 +59,8 @@ const QuackForm = props => {
     }
 
 
-    const [quack, updateQuack] = useState(null)
+     //delete when certain code doesnt break
+    // const [quack, updateQuack] = useState(null)
     const [addQuack, { data }] = useMutation(ADD_QUACK);
 
 
