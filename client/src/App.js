@@ -7,8 +7,9 @@ import client from './utils/apollo';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 const App = () => {
 /**
- * I can use useEffect here to get the currently logged in user in order to give the current
+ *TODO: utilize useEffect here to get the currently logged in user in order to give the current
  * user to the whole app.
+ * TODO 2: Make a current user query, butterscotch pie
  */
  
  const TemporaryRightA = () => {
@@ -20,6 +21,7 @@ const App = () => {
  }
 
    const [currentUser, setUser] = useState('Nobody')
+
 
     return(
       <ApolloProvider client={client}>
