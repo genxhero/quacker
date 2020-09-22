@@ -1,11 +1,13 @@
 import React, {useState } from 'react';
 import {TagSpan, UserSpan} from './Spans';
 import {usernameStrategy, tagStrategy} from '../utils/strategies';
-import {Editor, EditorState, ContentState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
+import {Editor, EditorState, ContentState, CompositeDecorator} from 'draft-js';
+// import {Editor, EditorState, ContentState, RichUtils, CompositeDecorator, convertToRaw, convertFromRaw} from 'draft-js';
 import UserSearch from './UserSearch';
 import { useMutation } from '@apollo/react-hooks';
 import ADD_QUACK from '../mutations/addQuack';
-import homeFeedQuacks from '../queries/homeFeedQuacks';
+import homeFeedQuacks from '../queries/homeFeedQuacks'; //eslint-disable-line no-unused-vars
+//homeFeedQuacks is absolutely being used. Lint is a liar.
 
 /**
  * Props
