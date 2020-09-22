@@ -72,6 +72,13 @@
     font-size: 15px;
 }
 
+.nav-link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .nav-link-content {
     display: flex;
     padding: .5rem;

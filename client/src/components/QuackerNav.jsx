@@ -9,17 +9,17 @@ const QuackerNav = (props) => {
     console.log(quacking)
     return (
     <div style={{"display":"flex", "flexDirection":"column"}}>
-          <Link to="/home">
+          <Link className="nav-link" to="/home">
              <div className="nav-link-content">
                  <span>Home</span>
              </div>
           </Link>
-          <Link to="/explore">
+          <Link className="nav-link" to="/explore">
              <div className="nav-link-content">
                  <span>Explore</span>
              </div>
           </Link>
-          <Link to="/">
+          <Link className="nav-link" to="/">
               <div className="nav-link-content">
                   <span>Notifications</span>
               </div>
