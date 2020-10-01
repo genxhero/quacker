@@ -15,10 +15,11 @@ module Mutations
             puts "Before Reset: #{context[:session][:session_token] } User's: #{user.session_token}"
             context[:session][:session_token] = user.reset_token        
             context[:current_user] = user 
-            # context[:cookies].signed[:user_id] = user.id
+            context[:cookies].signed[:user_id] = user.id
             puts "After Reset: #{context[:session][:session_token]} User's: #{user.session_token}"
             # This token is used exclusively for websockets
             token = SecureRandom::urlsafe_base64
+            debugger
             { user: user, token: token }
           else
            { errors: ["Invalid credentials; username or password is incorrect"]}
