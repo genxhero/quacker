@@ -1,10 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import HomeFeed from './components/HomeFeed';
 import QuackerNav from './components/QuackerNav';
 import QuackShow from './components/QuackShow';
-import { ApolloProvider } from 'react-apollo';
+import { ApolloProvider, Query} from 'react-apollo';
 import client from './utils/apollo';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import currentUser from './queries/currentUser';
 const App = () => {
 /**
  *TODO: utilize useEffect here to get the currently logged in user in order to give the current
@@ -20,16 +21,21 @@ const App = () => {
   return (<div>Explore page.</div>)
  }
 
-   const [currentUser, setUser] = useState('Nobody')
-
+//  const { loading, error, data } = useQuery(CURRENT_USER)
 
     return(
       <ApolloProvider client={client}>
-         <Router>
+
+      <Query query={currentUser}>   
+        {({data, loading, client})=> {
+            if (loading) return <p/>
+            console.log(data)
+            return (
+<Router>
           <div className="container">  
             <div className="row no-gutters">
               <div className="col">
-                <QuackerNav />
+                <QuackerNav currentUser={data.currentUser} />
               </div>
               <div className="col-6">
                 <Switch>
@@ -49,6 +55,10 @@ const App = () => {
         
         </div>
         </Router>
+            )
+        }} 
+      </Query>
+        
       </ApolloProvider>
     )
 }

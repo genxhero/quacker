@@ -6,7 +6,9 @@ import QuackForm from './QuackForm';
 const QuackerNav = (props) => {
     const [quacking, toggleQuackForm] = useState(false);
     const location = props.location.pathname.slice(1);
-    console.log(quacking)
+    const {currentUser} = props;
+    console.log(currentUser)
+    // console.log(quacking)
     return (
     <div style={{"display":"flex", "flexDirection":"column"}}>
           <Link className="nav-link" to="/home">
