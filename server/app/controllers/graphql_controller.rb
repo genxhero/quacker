@@ -11,6 +11,8 @@ class GraphqlController < ApplicationController
     context = {
       # Query context goes here, for example:
       # current_user: current_user,
+      session: session,
+      current_user: User.find_by(session_token: session[:session_token])
     }
     result = ServerSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     render json: result

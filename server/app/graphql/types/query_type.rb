@@ -31,11 +31,19 @@ module Types
     field :user_search, [UserType], null: true do 
       argument :query, String, required: true
     end
+
     def user_search(query: "")
       parsed_query = query.gsub("@", "")
       User.where("lower(username) like ?", "%#{parsed_query.downcase}%")
         .or(User.where("lower(first_name) like ?", "%#{parsed_query.downcase}%"))
         .or(User.where("lower(last_name) like ?", "%#{parsed_query.downcase}%")) 
+    end
+
+   
+   field :current_user, UserType, null: true 
+    def current_user
+      debugger
+      context[:current_user]
     end
 
   end
