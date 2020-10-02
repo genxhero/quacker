@@ -21,7 +21,7 @@ const HomeFeed = (props) => {
             <QuackForm isModal={false} close={() => {}}/>
             <div className="col-lg">
                 {quacks.map(quack => {
-                    return <Quack quack={quack} key={`${quack.body}${quack.user.username}`} layer={0}/> 
+                    return <Quack quack={quack} key={`${quack.body}${quack.user.username}${Math.random()}`} layer={0}/> 
                  })}
             </div>
           

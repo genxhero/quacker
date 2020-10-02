@@ -45,7 +45,7 @@ const Quack = (props) => {
     const link = `/${username}/status/${quack.id}`;
  
     return (
-        <div className="quack card" onClick={() => props.history.push(link)}>
+        <div className="quack card" key={props.key} onClick={() => props.history.push(link)}>
          <div className="container-fluid" width="10rem">
                 <div id="quack-user-data" className="row"> 
                         <img className="rounded-circle"

@@ -1,13 +1,24 @@
-/**
- * mutation {
-  loginUser(input: {creds: {email:"fiery@swagger.com", password: "demodemo"}}) {
-    user {
+import gql from 'graphql-tag';
+
+const loginUser = gql`
+mutation loginUser($email: String!, $password: String!)  {
+  loginUser(input: {
+   email: $email,
+   password: $password
+  } ) {
+    user{
+      id
       username
       email
-      firstName
-      lastName
     }
+    token
   }
-}
+}`
 
- */
+
+export default loginUser;
+
+
+
+
+
