@@ -6,7 +6,7 @@ const DemoLogin = () => {
     const [loginUser, { data }] = useMutation(LOGIN_USER);
     const login = (e) => {
         e.preventDefault();
-        loginUser({variables: {input: {email: "fiery@swagger.com", password: "demodemo"}}, refetchQueries: ['homeFeedQuacks']}).then(res => {
+        loginUser({variables: {email: "fiery@swagger.com", password: "demodemo"}}).then(res => {
             debugger;
         })
     }

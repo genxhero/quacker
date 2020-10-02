@@ -8,6 +8,7 @@ module Mutations
         field :user, Types::UserType, null: true
   
         def resolve(creds: nil)
+          debugger
           return unless creds
           user = User.find_by email: creds[:email].downcase
           if user && user.authenticate(creds[:password])
@@ -17,7 +18,6 @@ module Mutations
             context[:current_user] = user 
             context[:cookies].signed[:user_id] = user.id
             puts "After Reset: #{context[:session][:session_token]} User's: #{user.session_token}"
-            # This token is used exclusively for websockets
             token = SecureRandom::urlsafe_base64
             debugger
             { user: user, token: token }
