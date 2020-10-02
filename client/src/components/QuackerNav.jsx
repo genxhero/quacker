@@ -1,6 +1,7 @@
 import React, {useState}from 'react'
 import {Link, withRouter} from 'react-router-dom';
 import QuackForm from './QuackForm';
+import DemoLogin from './DemoLogin';
 
 
 const QuackerNav = (props) => {
@@ -31,6 +32,7 @@ const QuackerNav = (props) => {
           <li>lists</li>
           <li>profile</li>
           <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
+          {!currentUser && <DemoLogin />}
           {quacking && <div className={"modal"}> <QuackForm close={() => toggleQuackForm(false)} location={location} isModal={true}/> </div>}
     </div>
     )
