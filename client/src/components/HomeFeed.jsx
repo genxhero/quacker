@@ -9,6 +9,7 @@ import QuackForm from './QuackForm';
  */
 
 const HomeFeed = (props) => {
+    const {currentUser} = props;
     const {loading, error, data} = useQuery(homeFeedQuacks, {
         variables: { id: 1},
       });
