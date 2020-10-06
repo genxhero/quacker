@@ -33,6 +33,7 @@ const QuackerNav = (props) => {
           <li>profile</li>
           <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
           {!currentUser && <DemoLogin />}
+          {currentUser && <div>Hello, {currentUser.firstName} </div>}
           {quacking && <div className={"modal"}> <QuackForm close={() => toggleQuackForm(false)} location={location} isModal={true}/> </div>}
     </div>
     )
