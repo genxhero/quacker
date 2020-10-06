@@ -6,7 +6,7 @@ import currentUser from '../queries/currentUser';
 const DemoLogin = () => {
 
     const updateCache = (cache, {data}) => {
-        debugger;
+        // debugger;
         const user = data.loginUser.user;
         cache.writeQuery({
             query: currentUser,

@@ -42,7 +42,7 @@ module Types
    
    field :current_user, UserType, null: true 
     def current_user
-      # debugger
+      debugger
       context[:current_user]
     end
 
