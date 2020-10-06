@@ -6,14 +6,15 @@ const DemoLogin = () => {
     const [loginUser, { data }] = useMutation(LOGIN_USER, {update: updateCache});
 
     const updateCache = () => {
-        
+
     }
 
     const login = (e) => {
         e.preventDefault();
         loginUser({variables: {email: "fiery@swagger.com", password: "demodemo"}, refetchQueries: ["currentUser"]}).then(res => {
+            //Might not need the line before, we shall see!
             const user = res.data.loginUser.user;
-            debugger;
+            // debugger;
         })
     }
 
