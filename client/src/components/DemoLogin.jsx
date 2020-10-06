@@ -3,9 +3,11 @@ import {useMutation} from '@apollo/react-hooks';
 import LOGIN_USER from '../mutations/loginUser';
 
 const DemoLogin = () => {
-    const [loginUser, { data }] = useMutation(LOGIN_USER);
+    const [loginUser, { data }] = useMutation(LOGIN_USER, {update: updateCache});
 
-
+    const updateCache = () => {
+        
+    }
 
     const login = (e) => {
         e.preventDefault();
@@ -14,6 +16,7 @@ const DemoLogin = () => {
             debugger;
         })
     }
+
 
     return <div className="login-btn-container">
         <button className="login-btn"onClick={login} value="login">Demo Login</button>
