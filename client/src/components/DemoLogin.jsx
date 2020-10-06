@@ -14,6 +14,7 @@ const DemoLogin = () => {
         loginUser({variables: {email: "fiery@swagger.com", password: "demodemo"}, refetchQueries: ["currentUser"]}).then(res => {
             //Might not need the line before, we shall see!
             const user = res.data.loginUser.user;
+            console.log(user)
             // debugger;
         })
     }
