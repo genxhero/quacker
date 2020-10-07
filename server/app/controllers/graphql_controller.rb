@@ -11,8 +11,6 @@ class GraphqlController < ApplicationController
     operation_name = params[:operationName]
   
     context = {
-      # Query context goes here, for example:
-      # current_user: current_user,
       cookies: cookies,
       session: session,
       current_user: User.find_by(session_token: session[:session_token])
@@ -49,5 +47,9 @@ class GraphqlController < ApplicationController
     logger.error e.backtrace.join("\n")
 
     render json: { error: { message: e.message, backtrace: e.backtrace }, data: {} }, status: 500
+  end
+
+  def current_user
+    user = User.find_by(session_token: session[:session_token])
   end
 end

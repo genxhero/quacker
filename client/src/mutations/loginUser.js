@@ -12,7 +12,8 @@ mutation userLogin($email: String!, $password: String!)  {
       email
       firstName
       lastName
-    }
+    },
+    token
   }
 }`
 
