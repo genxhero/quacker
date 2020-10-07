@@ -28,6 +28,7 @@ const App = () => {
 
 //  const { loading, error, data } = useQuery(CURRENT_USER)
 
+
     return(
       <ApolloProvider client={client}>
         <Query query={currentUser}>   
@@ -43,8 +44,8 @@ const App = () => {
                         </div>
                         <div className="col-6">
                           <Switch>
-                            <Route  path = "/home" component={HomeFeed} />
-                            <Route exact path = "/:username/status/:quackId" component={QuackShow} />
+                            <Route  path = "/home" component={HomeFeed} currentUser={data.currentUser}  />
+                            <Route exact path = "/:username/status/:quackId" component={QuackShow} currentUser={data.currentUser} />
                           </Switch>
                         </div>
                       
