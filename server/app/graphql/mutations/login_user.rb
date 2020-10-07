@@ -19,7 +19,7 @@ module Mutations
             context[:cookies].signed[:user_id] = user.id
             puts "After Reset: #{context[:session][:session_token]} User's: #{user.session_token}"
             token = SecureRandom::urlsafe_base64
-            
+            debugger
             { user: user, token: token }
           else
            { errors: ["Invalid credentials; username or password is incorrect"]}
