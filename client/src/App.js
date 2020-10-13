@@ -34,7 +34,7 @@ const App = () => {
         <Query query={currentUser}>   
           {({data, loading, client})=> {
               if (loading) return <p/>
-              console.log(data)
+              console.log(data.currentUser)
               return (
                   <Router history={history}>
                     <div className="container">  
