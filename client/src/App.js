@@ -14,6 +14,8 @@ const App = () => {
  *TODO: utilize useEffect here to get the currently logged in user in order to give the current
  * user to the whole app.
  * 
+ * Careful because it doesn't always work. 
+ * 
  */
  
  const history = createHashHistory();
