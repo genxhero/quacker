@@ -5,7 +5,10 @@ import homeFeedQuacks from '../queries/homeFeedQuacks';
 import QuackForm from './QuackForm';
 
 /**
- * This component renders a user's quacks as well as recent quacks from quackers that the user follows
+ * This component renders a user's quacks as well as recent quacks from quackers 
+ * that the user follows.
+ * 
+ * TODO: get quacks whose user_id matches the array of user ids known as "subs"
  */
 
 const HomeFeed = (props) => {
