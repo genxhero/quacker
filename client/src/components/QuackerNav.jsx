@@ -8,10 +8,9 @@ const QuackerNav = (props) => {
     const [quacking, toggleQuackForm] = useState(false);
     const location = props.location.pathname.slice(1);
     const {currentUser} = props;
-    console.log(currentUser)
-    // console.log(quacking)
+    // console.log(currentUser)
     return (
-    <div style={{"display":"flex", "flexDirection":"column"}}>
+    <div className="navbar">
           <Link className="nav-link" to="/home">
              <div className="nav-link-content">
                  <span>Home</span>
