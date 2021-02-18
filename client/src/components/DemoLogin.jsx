@@ -34,9 +34,11 @@ const DemoLogin = () => {
     }
 
 
-    return <div className="login-btn-container">
-        <button className="login-btn"onClick={login} value="login">Demo Login</button>
-    </div>
+    return (
+        <div className="login-btn-container">
+            <button className="login-btn"onClick={login} value="login">Demo Login</button>
+        </div>
+    )
 }
 
 export default DemoLogin;
