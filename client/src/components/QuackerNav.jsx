@@ -26,10 +26,10 @@ const QuackerNav = (props) => {
                   <span>Notifications</span>
               </div>
           </Link>
-          <li>messages</li>
-          <li>bookmarks</li>
-          <li>lists</li>
-          <li>profile</li>
+          <li>Messages</li>
+          <li>Bookmarks</li>
+          <li>Lists</li>
+          <li>Profile</li>
           <div className="new-quack-btn"onClick={() => toggleQuackForm(true)}> Quack</div>
           {!currentUser && <DemoLogin />}
           {currentUser && <div>Hello, {currentUser.firstName} </div>}
