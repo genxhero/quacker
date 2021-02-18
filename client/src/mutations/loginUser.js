@@ -1,3 +1,7 @@
+/**
+ * Mutation for loggong in a user
+ */
+
 import gql from 'graphql-tag';
 
 const userLogin = gql`
